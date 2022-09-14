@@ -11,31 +11,37 @@
     <title>Clase 8 - DOM</title>
 </head>
 <body>
-    <h1 class="titulo">Calculadora de gases ideales</h1>
-    <div class="contenedor">
-        <h3 class="leyenda">Elija la variable que desea calcular</h3>
-        <div>
-            <input type="radio" id="P" name="variableIncognita" value="P">
-            <label for="P">Presión</label>
+    <div>
+        <h1 class="titulo">Calculadora de gases ideales</h1>
+        <div class="contenedor">
+            <h3 class="leyenda">Elija la variable que desea calcular</h3>
+            <div class="radios">
+                <input type="radio" id="P" name="variableIncognita" value="P">
+                <label for="P">Presión</label>
+            </div>
+            <div class="radios">
+                <input type="radio" id="V" name="variableIncognita" value="V">
+                <label for="V">Volumen</label>
+            </div>
+            <div class="radios">
+                <input type="radio" id="n" name="variableIncognita" value="n">
+                <label for="n">Número de moles</label>
+            </div>
+            <div class="radios">
+            <input type="radio" id="T" name="variableIncognita" value="T">
+            <label for="T">Temperatura</label>
+            </div>
+            <button id="boton">Ingresar valores</button>
+            <!-- <button id="boton2"></button> -->
         </div>
-        <div>
-            <input type="radio" id="V" name="variableIncognita" value="V">
-            <label for="V">Volumen</label>
-        </div>
-        <div>
-            <input type="radio" id="n" name="variableIncognita" value="n">
-            <label for="n">Número de moles</label>
-        </div>
-        <div>
-        <input type="radio" id="T" name="variableIncognita" value="T">
-        <label for="T">Temperatura</label>
-        </div>
-        <button id="boton">Ingresar valores</button>
-        <!-- <button id="boton2"></button> -->
+        <p id="mensaje"></p>
+        <p id="ingresos"></p>
+        <p id="resultados"></p>
     </div>
-    <p id="mensaje"></p>
-    <p id="ingresos"></p>
-    <p id="resultados"></p>
+    <div id="seccionHistorial" class="seccionHistorial">
+        <button id="historial">Historial</button>
+        <div id="verHistorial"></div>
+    </div>
 
     <script src="./main.js"></script>
 </body>

@@ -8,6 +8,7 @@ let boton2;
 let variable1;
 let variable2;
 let variable3;
+const historial = [];
  
 const boton = document.querySelector('#boton');        
 const radioBotones = document.querySelectorAll('input[name="variableIncognita"]');
@@ -49,6 +50,10 @@ boton.addEventListener("click", () => {
                         //se genera código HTML para luego mostrar el resultado en el DOM
                         resultado = `<p class="resultado">El valor de la presión es: <strong> ${p} atm</strong></p>`;
                         resultados.innerHTML = resultado;
+                        //carga del resultado en un historial
+                        //let pHistorial={variable: "P", valor: p};
+                        let pHistorial=`P= ${p}`
+                        historial.push(pHistorial);
                     })
                     break;
                 case "V":
@@ -71,6 +76,9 @@ boton.addEventListener("click", () => {
                     v=(n*R*t)/p;
                     resultado = `<p class="resultado">El valor del volumen es: <strong> ${v} l</strong></p>`;
                     resultados.innerHTML = resultado;
+
+                    let vHistorial=`V= ${v}`
+                    historial.push(vHistorial);
                     })
                     break;
                 case "T":
@@ -92,6 +100,9 @@ boton.addEventListener("click", () => {
                     t=(p*v)/(n*R)-273.15;
                     resultado = `<p class="resultado">El valor de la temperatura es: <strong> ${t} °C</strong></p>`;
                     resultados.innerHTML = resultado;
+
+                    let tHistorial=`T= ${t}`
+                    historial.push(tHistorial);
                     })
                     break;
                 case "n":
@@ -114,6 +125,9 @@ boton.addEventListener("click", () => {
                     n=(p*v)/(t*R);
                     resultado = `<p class="resultado">El número de moles es: <strong> ${n} moles</strong></p>`;
                     resultados.innerHTML = resultado;
+
+                    let nHistorial=`n= ${n}`
+                    historial.push(nHistorial);
                     })
                     break;
             }
@@ -121,3 +135,18 @@ boton.addEventListener("click", () => {
         }
     }
 });
+
+//ver historial
+const botonHistorial = document.getElementById("historial");
+const verHistorial = document.getElementById("verHistorial")
+const ocultarHistorial = document.getElementById("ocultarHistorial")
+//Escuchando el evento click en el boton
+botonHistorial.addEventListener("click", ()=> {
+    botonHistorial.innerText = "Actualizar"
+    verHistorial.innerHTML=""
+    for (let i = 0; i < historial.length; i++) {
+        let div = document.createElement("div")
+        div.innerHTML=`<p>${historial[i]}</p>`
+        verHistorial.append(div);
+    }
+})
